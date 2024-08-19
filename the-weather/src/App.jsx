@@ -3,7 +3,7 @@ import axios from 'axios'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [weather, setWeather] = useState({})
 
   const inputRef = useRef()
 
@@ -12,9 +12,8 @@ function App() {
     const key = '181f2b23fdd32852ef60ca24cd8507ba'
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&lang=pt_br&units=metric`
 
-    const data = await axios.get(url)
-
-    console.log(data)
+    const apiInfo = await axios.get(url)
+    setWeather(apiInfo.data)
   }
 
   return (
