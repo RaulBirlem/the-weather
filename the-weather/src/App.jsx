@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react'
+import axios from 'axios'
 import './App.css'
 
 function App() {
@@ -6,8 +7,14 @@ function App() {
 
   const inputRef = useRef()
 
-  function searchCity(){
-    console.log(inputRef)
+  async function searchCity(){
+    const city = inputRef.current.value;
+    const key = '181f2b23fdd32852ef60ca24cd8507ba'
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}`
+
+    const data = await axios.get(url)
+
+    console.log(data)
   }
 
   return (
