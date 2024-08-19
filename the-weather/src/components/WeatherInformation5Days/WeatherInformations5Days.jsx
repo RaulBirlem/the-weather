@@ -11,9 +11,14 @@ function WeatherInformations5Days({weather5Days}){
 
     for(let forecast of weather5Days.list){
       const date = new Date(forecast.dt * 1000).toLocaleDateString()
+//filtra as datas e retorna apenas os dias diferentes
 
-      console.log(date)
+      if(!dailyForecast[date]){
+        dailyForecast[date] = forecast
+      }
+      
     }
+    console.log(dailyForecast)
 
   return (
     <div className='weather-container'>
