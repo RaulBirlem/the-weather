@@ -16,9 +16,10 @@ function WeatherInformations5Days({weather5Days}){
       if(!dailyForecast[date]){
         dailyForecast[date] = forecast
       }
-      
     }
-    console.log(dailyForecast)
+    const next5Days = Object.values(dailyForecast).slice(1,6)
+
+    console.log(next5Days)
 
   return (
     <div className='weather-container'>
